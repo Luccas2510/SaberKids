@@ -1,0 +1,6 @@
+@SaberKids_HostAddress = http://localhost:5282
+
+GET {{SaberKids_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
