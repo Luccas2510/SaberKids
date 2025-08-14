@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SaberKids.Data;
 
@@ -11,9 +12,11 @@ using SaberKids.Data;
 namespace SaberKids.Migrations
 {
     [DbContext(typeof(SaberKidsDbContext))]
-    partial class SaberKidsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250814135744_LongNum")]
+    partial class LongNum
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,8 +37,8 @@ namespace SaberKids.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CodeCartao")
-                        .HasColumnType("int");
+                    b.Property<long>("CodeCartao")
+                        .HasColumnType("bigint");
 
                     b.Property<DateOnly>("DataVenci")
                         .HasColumnType("date");

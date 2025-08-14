@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SaberKids.Data;
 
@@ -11,9 +12,11 @@ using SaberKids.Data;
 namespace SaberKids.Migrations
 {
     [DbContext(typeof(SaberKidsDbContext))]
-    partial class SaberKidsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250808114513_DbSaberKidss")]
+    partial class DbSaberKidss
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,69 +24,6 @@ namespace SaberKids.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("SaberKids.Models.CartaoModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("BandeiraCartao")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CodeCartao")
-                        .HasColumnType("int");
-
-                    b.Property<DateOnly>("DataVenci")
-                        .HasColumnType("date");
-
-                    b.Property<string>("Descricao")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NomeCartao")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<long>("NumeroCartao")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("TipoCartao")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Cartoes");
-                });
-
-            modelBuilder.Entity("SaberKids.Models.CartaoPagamentoModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("CartaoId")
-                        .IsRequired()
-                        .HasColumnType("int");
-
-                    b.Property<int?>("PagamentoId")
-                        .IsRequired()
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CartaoId");
-
-                    b.HasIndex("PagamentoId");
-
-                    b.ToTable("CartoesPagamentos");
-                });
 
             modelBuilder.Entity("SaberKids.Models.CursoModel", b =>
                 {
@@ -141,27 +81,6 @@ namespace SaberKids.Migrations
                     b.ToTable("Materias");
                 });
 
-            modelBuilder.Entity("SaberKids.Models.PagamentoModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Anual")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Mensal")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Pagamentos");
-                });
-
             modelBuilder.Entity("SaberKids.Models.TurmaMateriaModel", b =>
                 {
                     b.Property<int>("Id")
@@ -217,9 +136,6 @@ namespace SaberKids.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CartaoId")
-                        .HasColumnType("int");
-
                     b.Property<DateOnly>("DataNasci")
                         .HasColumnType("date");
 
@@ -244,28 +160,7 @@ namespace SaberKids.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CartaoId");
-
                     b.ToTable("Usuarios");
-                });
-
-            modelBuilder.Entity("SaberKids.Models.CartaoPagamentoModel", b =>
-                {
-                    b.HasOne("SaberKids.Models.CartaoModel", "Cartao")
-                        .WithMany()
-                        .HasForeignKey("CartaoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SaberKids.Models.PagamentoModel", "Pagamento")
-                        .WithMany()
-                        .HasForeignKey("PagamentoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Cartao");
-
-                    b.Navigation("Pagamento");
                 });
 
             modelBuilder.Entity("SaberKids.Models.CursoModel", b =>
@@ -304,15 +199,6 @@ namespace SaberKids.Migrations
                     b.Navigation("Materia");
 
                     b.Navigation("Turma");
-                });
-
-            modelBuilder.Entity("SaberKids.Models.UsuarioModel", b =>
-                {
-                    b.HasOne("SaberKids.Models.CartaoModel", "Cartao")
-                        .WithMany()
-                        .HasForeignKey("CartaoId");
-
-                    b.Navigation("Cartao");
                 });
 #pragma warning restore 612, 618
         }

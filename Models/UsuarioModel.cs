@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography.X509Certificates;
+using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace SaberKids.Models
@@ -12,5 +13,7 @@ namespace SaberKids.Models
         public string CPF { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }
+        [JsonIgnore]
+        public virtual CartaoModel? Cartao { get; set; }
     }
 }

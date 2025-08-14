@@ -18,6 +18,9 @@ builder.Services.AddScoped<IMateriaRepositorio, MateriaRepositorio>();
 builder.Services.AddScoped<ITurmaRepositorio, TurmaRepositorio>();
 builder.Services.AddScoped<ITurmaMateriaRepositorio, TurmaMateriaRepositorio>();
 builder.Services.AddScoped<ICursoRepositorio, CursoRepositorio>();
+builder.Services.AddScoped<ICartaoRepositorio, CartaoRepositorio>();
+builder.Services.AddScoped<ICartaoPagamentoRepositorio, CartaoPagamentoRepositorio>();
+builder.Services.AddScoped<IPagamentoRepositorio, PagamentoRepositorio>();
 
 /*Adicionando a nossa string de conexão*/
 builder.Services.AddDbContext<SaberKidsDbContext>(

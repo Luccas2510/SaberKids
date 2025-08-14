@@ -7,6 +7,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20250605130300_SaberKidsDb.cs" />
+    <Compile Remove="Migrations\20250605130300_SaberKidsDb.Designer.cs" />
+    <Compile Remove="Migrations\20250605132927_UsuarioCerto.cs" />
+    <Compile Remove="Migrations\20250605132927_UsuarioCerto.Designer.cs" />
+    <Compile Remove="Migrations\20250605132948_Usuario.cs" />
+    <Compile Remove="Migrations\20250605132948_Usuario.Designer.cs" />
+    <Compile Remove="Migrations\20250605141035_CursoCerto.cs" />
+    <Compile Remove="Migrations\20250605141035_CursoCerto.Designer.cs" />
+    <Compile Remove="Migrations\20250605182646_BancoAlterado.cs" />
+    <Compile Remove="Migrations\20250605182646_BancoAlterado.Designer.cs" />
+    <Compile Remove="Migrations\20250808114022_SaberK.cs" />
+    <Compile Remove="Migrations\20250808114022_SaberK.Designer.cs" />
+    <Compile Remove="Migrations\20250808114513_DbSaberKidss.cs" />
+    <Compile Remove="Migrations\20250808114513_DbSaberKidss.Designer.cs" />
+    <Compile Remove="Migrations\20250814135744_LongNum.cs" />
+    <Compile Remove="Migrations\20250814135744_LongNum.Designer.cs" />
     <Compile Remove="Models\Mateias.cs" />
   </ItemGroup>
 

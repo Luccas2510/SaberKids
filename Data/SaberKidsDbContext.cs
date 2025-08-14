@@ -10,7 +10,10 @@ namespace SaberKids.Data
 
         public DbSet<UsuarioModel> Usuarios { get; set; }
         public DbSet<CursoModel> Cursos { get; set; }
+        public DbSet<CartaoModel> Cartoes { get; set; }
+        public DbSet<CartaoPagamentoModel> CartoesPagamentos { get; set; }
         public DbSet<MateriaModel> Materias { get; set; }
+        public DbSet<PagamentoModel> Pagamentos { get; set; }
         public DbSet<TurmaModel> Turmas { get; set; }
         public DbSet<TurmaMateriaModel> TurmasMaterias { get; set; }
 
@@ -19,6 +22,9 @@ namespace SaberKids.Data
         {
             modelBuilder.ApplyConfiguration(new UsuarioMap());
             modelBuilder.ApplyConfiguration(new CursoMap());
+            modelBuilder.ApplyConfiguration(new CartaoMap());
+            modelBuilder.ApplyConfiguration(new CartaoPagamentoMap());
+            modelBuilder.ApplyConfiguration(new PagamentoMap());
             modelBuilder.ApplyConfiguration(new MateriaMap());
             modelBuilder.ApplyConfiguration(new TurmaMap());
             modelBuilder.ApplyConfiguration(new TurmaMateriaMap());
